@@ -1,47 +1,64 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
+void swap(int *list, int pos1, int pos2)
 {
-	int list[5]={21,5,11,3,17};
-
-	int len= 5;
-	int temp=0;
-
-	printf("Unsorted List: ");
-	for(int x=0; x<len;x++)
-	{
-		printf("%d ", list[x]);
-	}
-	printf("\n");
-
-	for(int i=len; i>0; i--)
-	{
-
-		for(int j=0; j<i-1; j++)
-		{
-			if (list[j]>list[j+1])
-			{
-				
-				temp=list[j];
-				list[j]=list[j+1];
-				list[j+1]=temp;
-				for(int y=0; y<len;y++)
-				{
-				printf("%d ", list[y]);
-				}
-				printf("\n");
-				
-			}
-		}
-	}
-
-
-
-	/* printf("Sorted List: ");
-	for(int y=0; y<len;y++)
-	{
-		printf("%d ", list[y]);
-	}
-	return 0;
-	*/
+  int temp=list[pos1];
+  list[pos1]=list[pos2];
+  list[pos2]=temp;
 }
+
+void bubblesort(int *list, int len)
+{
+  for(int x=len-1;x>0; x--)
+  {
+    for(int y=0; y<x;y++)
+    {
+      if(list[y]>list[y+1])
+      {
+        swap(list, y, y+1);
+      }
+    }
+  }
+  printf("Sorted list: ");
+  for (int j=0; j<len;j++)
+  {
+    printf("%d ", list[j]);
+  }
+
+}
+
+
+
+
+
+
+
+int main(int argc, char *argv[])
+{
+  int len=0;
+  printf("Length of Array: ");
+  scanf("%d", &len);
+  printf("\n");
+
+
+  int * new_list =calloc(len, sizeof(int));
+
+  for (int i=0; i<len; i++)
+  {
+    printf("Element on the %d position: ", i);
+    scanf("%d", &new_list[i]);
+    printf("\n");
+  }
+  
+  printf("Unsorted list: ");
+
+  for (int j=0; j<len; j++)
+  {
+    printf("%d ", new_list[j]); 
+  }
+  printf("\n"); 
+  bubblesort(new_list, len);
+
+  free(new_list);
+} 
