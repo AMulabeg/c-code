@@ -9,6 +9,6 @@ int main ()
 	printf("a= %p", &a);
 
 	return 0;
-
+        
 
 }
