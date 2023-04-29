@@ -14,7 +14,7 @@ void bubblesort(int *list, int len)
   {
     for(int y=0; y<x;y++)
     {
-      if(list[y]>list[y+1])
+      (list[y]>list[y+1])
       {
         swap(list, y, y+1);
       }
