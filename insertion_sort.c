@@ -16,6 +16,7 @@ void insertion_sort(int * list, int size)
   printf("Sorted list: ");
   for (int j=0; j<size; j++)
   {
+    r
     printf("%d ", list[j]); 
   }
   printf("\n");
